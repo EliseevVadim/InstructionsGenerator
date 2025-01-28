@@ -1,0 +1,40 @@
+Based on the HTML page data obtained from parsing the website of Donetsk State University:
+
+Page Title:
+
+***
+
+Date of Last Content Update:
+
+///
+
+Content:
+
+###
+
+Generate the maximum possible number of instructions with model responses (including both long and short responses) that fully cover the provided text, especially its factual aspects. The instructions should be suitable for fine-tuning an LLM as an intelligent assistant for Donetsk State University. Each instruction must be formatted as JSON with input (question) and output (answer). Avoid generating irrelevant content that is not specifically related to the activities of Donetsk State University. If the text contains no meaningful information (e.g., a list of links, advertisements, or other utility data), generate a stub with "error": "This text does not contain useful content for generating instructions".
+
+IMPORTANT!
+
+The provided content often pertains to specific local aspects of the university's activities. Therefore, DO NOT generate overly generic questions such as "What programs are offered at DSU?" or "Who is a professor at DSU?" because the objects described in specific files are not the only ones in the university's context, and such questions are counterproductive.
+
+If the content mentions a faculty member, instead of a question like "Who is a professor of the Department of Physical Education and Sports on the <title> page?" with the answer "<Name of the professor>", generate "Who is <Name of the professor>?" with the response based on the page content. Do not respond with "A professor described on the <title> page"; instead, use the actual content of the page. This logic applies to all other instructions as well.
+
+Additionally, the page title is provided, which can better reveal the text's content. Use it and its connection to the text to construct higher-quality instructions.
+
+Moreover, the date of the last content update for each page is indicated. Use this information to improve the quality of the generated instructions. Avoid asking questions like "When was the page content last updated?" as this question is not relevant; the date should only be used to add context to the content.
+
+Avoid using pronouns or generic nouns when generating questions. Instead, use named entities from the page title or as appropriate to the content. Additionally, when listing facts in the model's response, include all available facts without truncating them with phrases like "and others."
+
+The model being trained will serve as an intelligent assistant for an educational organization. Therefore, this aspect must be the primary consideration when creating instructions and responses—all must be in the context of the specific educational organization being referenced.
+
+The text was obtained by automatically crawling the university website. This prompt is also generated automatically by substituting data obtained during the crawl. Therefore, it may contain irrelevant or useless information. For such texts, generate JSON with the error field containing the value "This text does not contain useful content for generating instructions." Do not generate instructions for meaningless content!
+
+Possible Types of Instructions:
+
+1. Questions to extract facts or details from the text (if factual material is present, questions must cover all of it).
+2. Questions requiring analysis or comparison of information.
+3. Any other questions applicable for fine-tuning an intelligent assistant for DSU.
+Instructions and responses must include both concise and detailed formats, fully covering the entire text (every part of the text MUST strictly participate as part of a response).
+
+Output is allowed ONLY in JSON format; any other textual content is strictly prohibited! All output must be presented in Russian language only!
