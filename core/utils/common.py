@@ -13,3 +13,7 @@ def free_memory():
 def init_random_seed(seed=0):
     random.seed(seed)
     np.random.seed(seed)
+
+
+def retrieve_context_by_question(db, question, k=3):
+    return str(db.similarity_search(question, k=k))
